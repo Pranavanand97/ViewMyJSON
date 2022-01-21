@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> View My { JSON } </title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@1.24.3/dist/full.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.15/clipboard.min.js></script>
+  <script src=main.js></script>
+
+  <style>
+    input[type="file"] {
+      display: none;
+    }
+  </style>
+
+</head>
+
+<div class="container w-full max-w-7xl">
+  <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl p-5 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8 ">
+    <div class="flex flex-row items-center justify-between lg:justify-start">
+      <a href="/" class="text-4xl font-bold tracking-tighter text-yellow-300 transition text-neutral-600 md:text-5xl duration-500
+            ease-in-out transform tracking-relaxed lg:pr-8 "> View My <span class=" text-5xl font-semibold tracking-tighter ">{ <text class="text-black">. JSON</text> }</span></a>
+    </div>
+    <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden md:flex md:justify-end md:flex-row">
+      <ul class="space-y-2 list-none lg:space-y-0 lg:items-center lg:inline-flex">
+        <li>
+          <a href="https://www.buymeacoffee.com/pranav" target="_blank" class="px-2 lg:px-6 py-6 text-base text-black-400 border-b-2 border-transparent hover:border-blue-600 leading-[22px] md:px-3 text-semibold text-gray-500 hover:text-blue-500 "
+       > Stay <span class=" text-semibold hidden lg:inline"> Happy 😃 &nbsp; &AMP; </span>
+          </a>
+        <li>
+        </li>
+        <a href="https://www.buymeacoffee.com/pranav" target="_blank"><img
+            src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"
+            style="height: 40px !important;width: 155px !important;"></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<section>
+  <div class="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl">
+
+    <div class="grid grid-cols-1 ">
+      <img alt="team"
+        class="flex-shrink-0 object-cover object-center w-16 h-16 mx-auto -mt-8 rounded-full shadow-xl aboslute"
+        src="data:image/png;base64,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">
+      <div class="p-6 lg:text-center">
+        <h4 class="mt-8 text-6xl font-semibold leading-none tracking-tighter text-gray-600  "> Free JSON File
+          Viewer&nbsp;!</h4>
+        <p class="mt-3 text-base leading-relaxed text-gray-500">
+          Use this site for free to view JSON files in your personal computer. <br> <a
+            href="https://www.buymeacoffee.com/pranav"></a>Made with ❤️</a> </p>
+        <p></p><br>
+
+        <body onload="checkFileAPI();">
+          <div id="container">
+            <input type="file" id="file" onchange='readText(this)' accept=".json" pointer="currentColor" />
+            <label class="flex items-center cursor-pointer justify-center ml-96 mr-96 px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-yellow-200 rounded-xl hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" for="file"> Choose the . JSON File </label>
+            <br>
+            <h3>Contents of your JSON file:</h3>
+            <br>
+        <div class="flex justify-center">
+          <div data-tip="Click me to copy JSON" class="tooltip tooltip-right">
+                <button class="btn btn-sm btn-outline">
+                    Copy to Clipboard
+                  </button> 
+          </div>
+        </div>
+            <div class="p-4 w-full ">
+              <div class="relative">
+                <div id="copyContent" class=" break-all relative w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 max-h-full text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out">
+                  <br>
+                  ...
+                  <br>
+                </div>
+               </div>           
+            </div>
+          </div>
+      </div>
+    </div>
+  </body>
+</div>
+</section>
+
+<script>
+(function () {
+  new Clipboard('.btn', {
+  target: function (trigger) {
+      return document.getElementById('copyContent');
+  
+  }
+  });
+
+  new Clipboard('.getDynamicVal', {
+  text: function (trigger) {
+      return "Place dynamic text...";
+  }
+  });
+})();
+</script>
+
+<footer class="bg-gray-200 text-gray-600 body-font">
+  <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+
+    <a href="https://www.buymeacoffee.com/pranav" target="_blank"><img
+        src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"
+        style="height: 60px !important;width: 217px !important;"></a>
+        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Made with ❤️
+        —
+        <a href="https://www.instagram.com/pranavanand__/?hl=en" class="text-gray-600 ml-1" rel="noopener noreferrer"
+        target="_blank"> by @Pranav_Anand, Keep our 🌍 Clean!</a>
+    </p>
+    <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+
+      <div class="flex justify-center mb-8 space-x-6 md:order-last md:mb-0">
+
+        <a href="https://www.instagram.com/pranavanand__/?hl=en" target="_blank"
+          class="text-gray-400 hover:text-gray-500">
+          <span class="sr-only">Instagram</span>
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd"
+              d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+              clip-rule="evenodd">
+            </path>
+          </svg>
+        </a>
+
+        <a href="https://github.com/Pranavanand97" target="_blank" class="text-gray-400 hover:text-gray-500">
+          <span class="sr-only">GitHub</span>
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd"
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+              clip-rule="evenodd">
+            </path>
+          </svg>
+        </a>
+
+        <a href="#" class="text-gray-400 hover:text-gray-500">
+          <span class="sr-only">Discord</span>
+          <svg class="w-9 h-9" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"
+             xmlns="http://www.w3.org/2000/svg">
+              <path
+              d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z" />
+          </svg>
+
+        </a>
+      </div>
+    </span>
+  </div>
+</footer>
+
+</html>
