@@ -27,8 +27,8 @@
   </style>
 
 </head>
-
-<div class="container w-full max-w-7xl">
+<body class="bg-auto">
+<div class="container w-full max-w-screen-2xl">
   <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl p-5 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8 ">
     <div class="flex flex-row items-center justify-between lg:justify-start">
       <a href="/" class="text-4xl font-bold tracking-tighter text-yellow-300 transition text-neutral-600 md:text-5xl duration-500
@@ -52,7 +52,7 @@
 </div>
 
 <section>
-  <div class="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl">
+  <div class=" bg-white-200 max-w-screen-2xl relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl">
 
     <div class="grid grid-cols-1 ">
       <img alt="team"
@@ -66,7 +66,7 @@
             href="https://www.buymeacoffee.com/pranav"></a>Made with ❤️</a> </p>
         <p></p><br>
 
-        <body onload="checkFileAPI();">
+        <body class="bg-auto" onload="checkFileAPI();">
           <div id="container">
             <input type="file" id="file" onchange='readText(this)' accept=".json" pointer="currentColor" />
             <label class="flex  transition
@@ -120,6 +120,8 @@
   });
 })();
 </script>
+
+</body>
 
 <footer class="bg-gray-200 text-gray-600 body-font">
   <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
